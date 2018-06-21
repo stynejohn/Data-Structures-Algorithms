@@ -20,7 +20,7 @@ public class TestDLL {
 					+ "\n8.Remove A Node Matching The Specified Node From The List\n9.Remove The Value At A Given Position\n10.Returns A String Representation Of Collection"
 					+ "\n11.Exit");
 			System.out.println("\n******************************\n");
-			/*int option = getOptionFromUser();*/
+			int option = getOptionFromUser();
 			/*int length = list.length();
 			switch(option)
 			{
@@ -98,11 +98,11 @@ public class TestDLL {
 
 	}
 
-	/*public static int getOptionFromUser() {
+	public static int getOptionFromUser() {
 		System.out.println("Enter Your Choice");
 		choice = sc.nextInt();
 		return choice;
-	}*/
+	}
 	
 	
 
