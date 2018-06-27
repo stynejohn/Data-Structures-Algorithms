@@ -1,21 +1,27 @@
 package DoubleLinkedList;
 
-//declaring a node structure
-public class DLLNode {
-
-	private int data; // value of a node
-	private DLLNode prev; // pointer of a node. A left pointer and a right pointer of type DLLNode
-	private DLLNode next;
-
-	// constructor
-	// whenever a new node is created this will get invoked
-	public DLLNode(int data) {
+public class DLLNode{
+	//A double linked list have a data field and two pointers, left and right
+	private int data;
+	DLLNode prev;
+	DLLNode next;
+	
+	//constructors
+	public DLLNode(int data)
+	{
 		this.data = data;
-		this.prev = null;
-		this.next = null;
+		prev = null;
+		next = null;
+	}
+	
+	public DLLNode(int data, DLLNode prev, DLLNode next)
+	{
+		this.data = data;
+		this.prev = prev;
+		this.next = next;
 	}
 
-	//getters and setters for all the variables
+	//set getters and setters
 	public int getData() {
 		return data;
 	}
@@ -39,7 +45,4 @@ public class DLLNode {
 	public void setNext(DLLNode next) {
 		this.next = next;
 	}
-	
-	
-
 }

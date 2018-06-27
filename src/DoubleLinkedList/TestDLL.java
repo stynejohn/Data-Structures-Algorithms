@@ -11,88 +11,84 @@ public class TestDLL {
 		boolean continueChoice = false;
 		int data;
 		int pos;
-		DLLNode node;
+		int positionValue;
 
 		do {
 			System.out.println("\n******************************\n");
-			System.out.println("1.Length Of The List\n2.Return First Node\n3.Insert At The Beginning"
-					+ "\n4.Insert At The End\n5.Insert New Node At Given Position(Index starts from 0 and end at (lengthOfList-1))\n6.Remove Node At Head Of The List\n7.Remove Node At The End Of The List"
-					+ "\n8.Remove A Node Matching The Specified Node From The List\n9.Remove The Value At A Given Position\n10.Returns A String Representation Of Collection"
-					+ "\n11.Exit");
+			System.out.println("1.Insert At The Beginning\n2.Insert At The End\n3.Length of the list\n4.Insert at a given position\n"
+					+"5.Find first position in which a given value prsent\n6.Remove head from list\n7.Remove tail from the list\n"
+					+ "8.Remove data from a given position\n9.Returns string representation of list\n10.exit");
 			System.out.println("\n******************************\n");
 			int option = getOptionFromUser();
-			/*int length = list.length();
 			switch(option)
 			{
 			case 1 :
-				System.out.println("Length of the list: "+length);
+				System.out.println("Enter the data");
+				data = sc.nextInt();
+				list.insertAtBegin(data);
+				System.out.println("Double linked list after the requested operation is::"+" ");
+				list.display();
 				break;
-			case 2 :
-				if(length!=0)
-				{
-				node = list.getHead();
-				System.out.println("The data of the head node is:" +node.getData());
-				}
-				else
-					System.out.println("List is empty");
+			
+			case 2:
+				System.out.println("Enter The Data");
+				data = sc.nextInt();
+				list.insertAtTheEnd(data);
+				System.out.println("Double linked list after the requested operation is::"+ " ");
+				list.display();
 				break;
+			
 			case 3:
-				System.out.println("Enter The Data To Insert In The Beginning Of The List");
-				data = sc.nextInt();
-				node = new ListNode(data);
-				list.insertAtBegin(node);
-				System.out.println("Single Linked List after the chosen operation");
-				list.display();
+				System.out.println("The length of the list is "+list.length());
 				break;
+				
 			case 4:
-				System.out.println("Enter The Data To Insert In The End Of The List");
-				data = sc.nextInt();
-				node = new ListNode(data);
-				list.insertAtEnd(node);
-				System.out.println("Single Linked List After the chosen operation");
-				list.display();
-				break;
-			case 5:
-				System.out.println("Insert the position to enter the node");
+				System.out.println("Enter the position to be which data to be inserted");
 				pos = sc.nextInt();
-				System.out.println("insert the data to be entered");
+				System.out.println("Enter the data to be inserted");
 				data = sc.nextInt();
-				list.insert(pos, data);
-				System.out.println("Single Linked List After the chosen operation");
+				list.insertAtGivenPos(pos, data);
+				System.out.println("Double linked list after the requested operation is::"+ " ");
 				list.display();
 				break;
+				
+			case 5:
+				System.out.println("Enter the data to be searched for");
+				data = sc.nextInt();
+				positionValue = list.returnFirstPositionOfAGivenValue(data);
+				if(positionValue==Integer.MIN_VALUE)
+					System.out.println("value is not found");
+				else
+					System.out.println("value present at::"+positionValue);
+				break;
+			
 			case 6:
-				list.removeFromBegin();
-				System.out.println("Single Linked List After the chosen operation");
+				list.removeHead();
+				System.out.println("Double linked list after the requested operation is::"+ " ");
 				list.display();
 				break;
-			case 7 :
-				list.removeFromEnd();
-				System.out.println("Single Linked List After the chosen operation");
+				
+			case 7:
+				list.removeTail();
+				System.out.println("Double linked list after the requested operation is::"+ " ");
 				list.display();
 				break;
+			
 			case 8:
-				System.out.println("enter the node to be deleted");
-				data = sc.nextInt();
-				list.removeData(data);
-				System.out.println("Single Linked List After the chosen operation");
+				System.out.println("Enter the position from which data to be removed");
+				pos = sc.nextInt();
+				list.removeValueAtGivenPos(pos);
+				System.out.println("Double linked list after the requested operation is::"+ " ");
 				list.display();
 				break;
 			case 9:
-				System.out.println("enter the position of node to be deleted");
-				pos = sc.nextInt();
-				list.removeNodeFromPos(pos);
-				System.out.println("Single Linked List After the chosen operation");
-				list.display();
-				break;
-			case 10:
 				String result = list.toString();
 				System.out.println(result);
 				break;
-			case 11:
-				continueChoice = true;*/
+			case 10:
+				continueChoice = true;
 				
-			//}
+			}
 
 		} while (!continueChoice);
 
