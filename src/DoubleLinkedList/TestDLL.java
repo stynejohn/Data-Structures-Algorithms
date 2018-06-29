@@ -61,6 +61,7 @@ public class TestDLL {
 				else
 					System.out.println("value present at::"+positionValue);
 				break;
+				
 			
 			case 6:
 				list.removeHead();
