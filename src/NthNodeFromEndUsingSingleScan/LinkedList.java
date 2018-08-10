@@ -1,6 +1,4 @@
-package NthNodeFromEndHashing;
-
-import java.util.Hashtable;
+package NthNodeFromEndUsingSingleScan;
 
 public class LinkedList {
 
@@ -47,25 +45,29 @@ public class LinkedList {
 		this.length = length;
 	}
 
-	public ListNode NthNodeFromEndHashing(int nthNode) {
+	public ListNode NthNodeFromEndSingleScan(int nthNode) {
 
-		Hashtable<Integer,ListNode> listTable = new Hashtable<Integer, ListNode>();
-		
-		int i = 0;
-	    ListNode currentNode = head;
-		while(currentNode!=null)
+		ListNode NthPointer = null, temp=head;
+		for(int count=1; count<nthNode;count++)
 		{
-			i++;
-			listTable.put(i, currentNode);
-			currentNode = currentNode.next;
+			temp = temp.next;
 		}
 		
-		int indexN = listTable.size();
-		int indexNode = indexN-nthNode+1;
-		System.out.println("index of the table where node exists is::"+indexNode);
-		ListNode node = listTable.get(indexNode);
-		return node; 
+		while(temp!=null)
+		{
+			if(NthPointer==null)
+				NthPointer = head;
+			else
+				NthPointer = NthPointer.next;
+			temp = temp.next;
+		}
+		
+		if(NthPointer!=null)
+			return NthPointer;
+		return null;
 	}
 
 }
+
+
 

@@ -1,6 +1,4 @@
-package NthNodeFromEndHashing;
-
-import java.util.Hashtable;
+package NthNodeFromEndWithoutHashing;
 
 public class LinkedList {
 
@@ -47,25 +45,40 @@ public class LinkedList {
 		this.length = length;
 	}
 
-	public ListNode NthNodeFromEndHashing(int nthNode) {
+	public ListNode NthNodeFromEndWithoutHashing(int nthNode) {
 
-		Hashtable<Integer,ListNode> listTable = new Hashtable<Integer, ListNode>();
-		
-		int i = 0;
+		int lengthList = 0;
 	    ListNode currentNode = head;
 		while(currentNode!=null)
 		{
-			i++;
-			listTable.put(i, currentNode);
+			lengthList++;
 			currentNode = currentNode.next;
 		}
 		
-		int indexN = listTable.size();
-		int indexNode = indexN-nthNode+1;
-		System.out.println("index of the table where node exists is::"+indexNode);
-		ListNode node = listTable.get(indexNode);
+		int indexNode = lengthList-nthNode+1;
+		int iterIndex=1;
+		ListNode currentNodeLoop = head;
+		ListNode node = null;
+		while(currentNodeLoop!=null)
+		{
+			if(iterIndex==indexNode)
+			{
+				node = currentNodeLoop;
+				return node;
+			}
+			else
+			{
+				currentNodeLoop = currentNodeLoop.next;
+				iterIndex++;
+			}
+				
+				
+		}
+		
+		
 		return node; 
 	}
 
 }
+
 

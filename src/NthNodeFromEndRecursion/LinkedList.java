@@ -1,11 +1,9 @@
-package NthNodeFromEndHashing;
-
-import java.util.Hashtable;
+package NthNodeFromEndRecursion;
 
 public class LinkedList {
 
 	private int length;
-
+	static int counter;
 	// A single node of a list
 	static class ListNode {
 		int data;
@@ -14,6 +12,10 @@ public class LinkedList {
 		ListNode(int data) {
 			this.data = data;
 			this.next = null;
+		}
+
+		public ListNode() {
+			// TODO Auto-generated constructor stub
 		}
 	}
 
@@ -46,26 +48,24 @@ public class LinkedList {
 	public void setLength(int length) {
 		this.length = length;
 	}
+	
+	public void NthNodeFromEnd(int data)
+	{
+		NthNodeFromEndRecursion(head,data);
+	}
 
-	public ListNode NthNodeFromEndHashing(int nthNode) {
-
-		Hashtable<Integer,ListNode> listTable = new Hashtable<Integer, ListNode>();
+	public void NthNodeFromEndRecursion(ListNode head, int NthNode) {
 		
-		int i = 0;
-	    ListNode currentNode = head;
-		while(currentNode!=null)
-		{
-			i++;
-			listTable.put(i, currentNode);
-			currentNode = currentNode.next;
-		}
+		if(head == null)
+			return;
+		NthNodeFromEndRecursion(head.next, NthNode);
+		counter++;
+		if(counter==NthNode)
+			System.out.println("Nth node from end is :: "+head.data);
 		
-		int indexN = listTable.size();
-		int indexNode = indexN-nthNode+1;
-		System.out.println("index of the table where node exists is::"+indexNode);
-		ListNode node = listTable.get(indexNode);
-		return node; 
 	}
 
 }
+
+
 
